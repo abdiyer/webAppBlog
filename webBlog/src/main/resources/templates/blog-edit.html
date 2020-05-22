@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редакт статьи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header "></header>
+
+
+<div class="container mt-5 mb-5">
+    <h1>Редакт статьи</h1>
+    <div th:each="el : ${post}">
+        <form  method="post">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
+            <input type="text" th:value="${el.anons}" name="anons" placeholder="Введите назаание анонса" class="form-control"><br>
+            <textarea name="full_text"  placeholder="Введите полный текст" class="form-control" th:value = "${el.full_text}" /><br>
+            <button type="submit" class="btn btn-success">Обновить</button>
+            <!--        //обработка (action) будут исполнятся на той же странице где находится формочка --> </form>
+    </div>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
